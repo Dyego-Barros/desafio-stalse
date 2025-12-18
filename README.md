@@ -1,91 +1,155 @@
-Desafio Stalse – API de Gerenciamento de Tickets e Pedidos
+# 🚀 Desafio Stalse – API de Gerenciamento de Tickets e Pedidos
 
-Este projeto consiste em uma API desenvolvida em FastAPI para gerenciamento de pedidos e tickets, incluindo carga de dados, ETL e exposição de endpoints documentados via Swagger.
+Este projeto consiste em uma **API desenvolvida em FastAPI** para gerenciamento de **pedidos e tickets**, incluindo:
 
-⚙️ Pré-requisitos
+* 📥 Carga de dados
+* 🔄 Pipeline de ETL
+* 🌐 Exposição de endpoints REST
+* 📚 Documentação automática via Swagger
+
+---
+
+## ⚙️ Pré-requisitos
 
 Antes de começar, certifique-se de ter instalado:
 
-Python 3.9+
-Gerenciador de pacotes UV - Instalação rápida:
-🪟 Windows
+* **Python 3.9+**
+* **UV** – gerenciador de pacotes e ambientes virtuais
 
-bash
+### 📦 Instalação do UV
+
+#### 🪟 Windows (PowerShell)
+
+```bash
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
-🐧 Linux / 🍎 macOS
+```
 
-bash
+#### 🐧 Linux / 🍎 macOS
+
+```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
-Ou via pip (alternativa):
+```
 
-bash
+#### 🔁 Alternativa via pip
+
+```bash
 pip install uv
-📥 Clone do repositório
+```
 
-bash
+---
+
+## 📥 Clone do repositório
+
+```bash
 git clone https://github.com/Dyego-Barros/desafio-stalse.git
 cd desafio-stalse
-🐍 Criação do ambiente virtual com UV
+```
 
-Crie e ative um ambiente virtual usando UV:
+---
 
-bash
+## 🐍 Criação do ambiente virtual com UV
+
+Crie e ative um ambiente virtual:
+
+```bash
 # Criar ambiente virtual
 uv venv .venv
+```
 
-# Ativar ambiente virtual
-# Windows (PowerShell):
+### ▶️ Ativação do ambiente virtual
+
+* **Windows (PowerShell):**
+
+```bash
 .venv\Scripts\Activate.ps1
-# Windows (CMD):
+```
+
+* **Windows (CMD):**
+
+```bash
 .venv\Scripts\activate.bat
-# Linux/macOS:
+```
+
+* **Linux/macOS:**
+
+```bash
 source .venv/bin/activate
-📦 Instalação das dependências
+```
 
-Instale as dependências do projeto usando UV:
+---
 
-bash
+## 📦 Instalação das dependências
+
+Instale todas as dependências do projeto:
+
+```bash
 uv sync
-📊 Preparação dos dados
+```
 
-1️⃣ Navegar até o diretório data/raw e executar o dataset
+---
 
-bash
+## 📊 Preparação dos dados
+
+### 1️⃣ Executar o dataset bruto
+
+Navegue até o diretório `data/raw` e execute:
+
+```bash
 cd data/raw
 python dataset.py
-Esse passo é responsável por preparar ou baixar o dataset bruto.
+```
 
-2️⃣ Navegar até o diretório data e executar o ETL
+Esse passo é responsável por **baixar ou gerar o dataset bruto**.
 
-bash
+---
+
+### 2️⃣ Executar o ETL
+
+Retorne para o diretório `data` e execute:
+
+```bash
 cd ../
 python etl.py
-O script de ETL realiza o processamento e gera os dados prontos para consumo pela API.
+```
 
-🚀 Executando a API
+O script de **ETL** processa os dados e os prepara para consumo pela API.
 
-Navegue até o diretório api e execute a aplicação:
+---
 
-bash
+## 🚀 Executando a API
+
+Navegue até o diretório da API e execute:
+
+```bash
 cd api
 python main.py
-A API será inicializada e o banco de dados será criado automaticamente.
+```
 
-📚 Documentação da API (Swagger)
+* A API será inicializada
+* O banco de dados será criado automaticamente
 
-Após iniciar a aplicação, acesse no navegador:
+---
 
-text
+## 📚 Documentação da API (Swagger)
+
+Após iniciar a aplicação, acesse:
+
+```
 http://localhost:8000/docs
+```
+
 No Swagger você poderá:
 
-📋 Visualizar todos os endpoints
-🔧 Testar as rotas da API diretamente na interface
-📄 Ver os schemas de request e response
-▶️ Executar requisições de exemplo
-🗂️ Estrutura do Projeto
+* 📋 Visualizar todos os endpoints
+* 🔧 Testar as rotas diretamente pela interface
+* 📄 Consultar schemas de request e response
+* ▶️ Executar requisições de exemplo
 
-text
+---
+
+## 🗂️ Estrutura do Projeto
+
+```text
 desafio-stalse/
 ├── api/                    # Código da API FastAPI
 │   ├── main.py            # Ponto de entrada da aplicação
@@ -96,17 +160,24 @@ desafio-stalse/
 │   └── etl.py             # Pipeline de ETL
 ├── .venv/                 # Ambiente virtual (gerado)
 ├── requirements.txt       # Dependências do projeto
-└── README.md             # Este arquivo
-✅ Observações Importantes
+└── README.md              # Documentação do projeto
+```
 
-✅ Certifique-se de que o ambiente virtual esteja ativado antes de executar os scripts
-✅ Para evitar problemas com SQLite, utilize apenas 1 worker ao rodar a aplicação
-✅ O projeto segue uma estrutura baseada em DDD (Domain Driven Design)
-✅ UV oferece instalação mais rápida e confiável que pip tradicional
-✅ Todos os caminhos são relativos à raiz do projeto
-🔧 Comandos Úteis UV
+---
 
-bash
+## ✅ Observações Importantes
+
+* ✅ Ative o ambiente virtual antes de executar os scripts
+* ✅ Para evitar problemas com **SQLite**, utilize apenas **1 worker**
+* ✅ O projeto segue conceitos de **DDD (Domain Driven Design)**
+* ✅ O **UV** oferece instalação mais rápida e confiável que o pip tradicional
+* ✅ Todos os caminhos são relativos à **raiz do projeto**
+
+---
+
+## 🔧 Comandos Úteis do UV
+
+```bash
 # Atualizar dependências
 uv sync --upgrade
 
@@ -118,18 +189,29 @@ uv add nome-da-dependencia
 
 # Remover dependência
 uv remove nome-da-dependencia
-🐛 Solução de Problemas
+```
 
-Se encontrar erros:
+---
 
-Erro de importação: Verifique se o ambiente virtual está ativado
-Erro de porta em uso: Altere a porta no arquivo api/main.py
-Erro no banco de dados: Delete o arquivo database.db e execute novamente
-Erro de permissão: Execute como administrador ou ajuste permissões
-📞 Suporte
+## 🐛 Solução de Problemas
 
-Para problemas ou dúvidas:
+Caso encontre erros:
 
-Consulte os logs exibidos no terminal durante a execução
-Verifique se todas as etapas foram seguidas corretamente
-Para problemas com UV, consulte a documentação oficial
+* **Erro de importação:** verifique se o ambiente virtual está ativado
+* **Porta em uso:** altere a porta no arquivo `api/main.py`
+* **Erro no banco de dados:** delete o arquivo `database.db` e execute novamente
+* **Erro de permissão:** execute como administrador ou ajuste as permissões
+
+---
+
+## 📞 Suporte
+
+Para dúvidas ou problemas:
+
+* Consulte os logs exibidos no terminal
+* Verifique se todas as etapas foram seguidas corretamente
+* Para problemas com o **UV**, consulte a documentação oficial
+
+---
+
+✨ *Projeto desenvolvido para o Desafio Técnico Stalse*
